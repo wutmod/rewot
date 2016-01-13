@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 	rewot.clients.tintin
-	~~~~~~~~~~~
+	~~~~~~~~~~~~~~~~~~~~
 	
 	TinTin++ line parser.
 	

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 	rewot.log
-	~~~~~~~~~~~
+	~~~~~~~~~
 	
 	Contains the Log class, for parsing logs from the mud.
 	

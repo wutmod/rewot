@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 	rewot.id
-	~~~~~~~~~~~
+	~~~~~~~~
 	
 	Generate a unique identifier to reference logs.
 	
