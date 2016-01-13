@@ -61,7 +61,7 @@ class Log():
 			if action_match == "client" and action_text:
 				self._action_client(action_text)
 			elif action_match == "delay" and action_text.isnumeric():
-				d["delta"] = action_text
+				d["delta"] = float(action_text)
 				d["show"] = False
 				d["text"] = ""
 			elif action_match == "mark":
