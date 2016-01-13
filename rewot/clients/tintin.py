@@ -4,9 +4,6 @@
 	~~~~~~~~~~~~~~~~~~~~
 	
 	TinTin++ line parser.
-	
-	:copyright: Copyright 2016 by the ReWoT team, see AUTHORS.rst.
-	:license: MIT, see LICENSE for details.
 """
 
 import re
