@@ -1,0 +1,7 @@
+*.pyc
+__pycache__
+www/logs/*
+www/replays/*.html
+www/raw/*
+config.py
+
