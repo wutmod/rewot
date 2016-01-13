@@ -3,10 +3,7 @@
 	rewot.clients.zmud
 	~~~~~~~~~~~~~~~~~~
 	
-	ZMud++ line parser.
-	
-	:copyright: Copyright 2016 by the ReWoT team, see AUTHORS.rst.
-	:license: MIT, see LICENSE for details.
+	ZMud line parser.
 """
 
 import datetime
