@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-	rewot.clients.tintin
-	~~~~~~~~~~~~~~~~~~~~
+	TinTin++ parser
+	~~~~~~~~~~~~~~~
 	
-	TinTin++ line parser.
+	TinTin++ client module to parse lines.
 """
 
 import re
@@ -12,20 +12,38 @@ from ansi2html import Ansi2HTMLConverter
 
 
 class TinTin:
+	""" This TinTin class will, given a raw input line from the log, break it
+	down into the necessary components and process it. The goal of processing
+	these lines are to compute the delta (delay) between lines and convert any
+	ANSI color sequences into the equivalent HTML tags with CSS markup.
+	"""
+	
 	def __init__(self):
-		""" Create the TinTin object. """
-		
 		self.ansi = Ansi2HTMLConverter()
 		self.last_ts = 0
 		self.client = None
 	
 	
 	def _tintin_0_1(self, line):
-		""" Parse a line from the log.
+		""" Parse a line from the log, format version 0.1.
 		
 		:param str line: Raw text of the line to parse
 		:return: Parsed line
 		:rtype: dict
+		
+		TinTin++ can (with `#format`_) create timestamps with the number of
+		micro seconds since the Unix epoch. This provides an easy and precise
+		measurement to use for calculating the delta for each line.
+		
+		.. _#format: http://tintin.sourceforge.net/manual/format.php
+		
+		The line begins with the timestamp, followed by a space, followed by
+		the MUD text. Note that the space is required, even if there's nothing
+		after it. Lines which don't match this format are presumed to have no
+		timestamp and are given a delta of 0 from the last line.
+		
+		Example line:
+		  ``1452707385328498 [ obvious exits: E ]``
 		"""
 		
 		d = {"delta": 0, "show": True}
@@ -51,7 +69,7 @@ class TinTin:
 	
 	
 	def set_client(self, client_string):
-		""" Set the specific client version.
+		""" Set the specific client version to **client_string**.
 		
 		:param str client_string: Client version string
 		:return: Success
@@ -66,7 +84,9 @@ class TinTin:
 	
 	
 	def parse(self, line):
-		""" Parse a line from the log with the appropriate client format.
+		""" Entry point to parse a line based on the log format version. From
+		here, the appropriate function will be called based on the version, as
+		set by set_client().
 		
 		:param str line: Raw text of the line to parse
 		:return: Parsed line

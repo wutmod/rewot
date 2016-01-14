@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-	rewot.log
-	~~~~~~~~~
+	Log Object
+	~~~~~~~~~~
 	
-	Contains the Log class, for parsing logs from the mud.
-	
-	:copyright: Copyright 2016 by the ReWoT team, see AUTHORS.rst.
-	:license: MIT, see LICENSE for details.
+	Log class, for parsing logs from the mud.
 """
 
 import json
@@ -17,11 +14,14 @@ from rewot.clients.zmud import ZMud
 
 
 class Log():
-	""" something something """
+	"""
+	This Log class is in charge of generating the JSON data based on the raw
+	log. The actual parsing itself isn't generally done by this class but is
+	handed off to specific helper classes. 
+	"""
 	
 	def __init__(self, player=None, title=None):
-		""" Create the Log object.
-		
+		"""
 		:param str title: Optional title of the log
 		:param str player: Optional name of player
 		"""
@@ -44,11 +44,20 @@ class Log():
 	
 	
 	def _action(self, line):
-		""" Perform an action based on a line from the log
+		""" Perform an action based on a line from the log.
 		
 		:param str line: Line to parse as an action
 		:return: Parsed action
 		:rtype: dict
+		
+		Action lines begin with ``#!``, followed by the action, followed by a
+		space (only required if there are aruments), then any arguments for the
+		action. Example:
+		
+			``#!delay 1.8``
+		
+		In this way can certain features be provided to users to annotate the
+		replay as they see fit.
 		"""
 		
 		d = {}
@@ -76,7 +85,8 @@ class Log():
 	
 	
 	def _action_client(self, client_string):
-		""" Set the client type based on the log action
+		""" Set the client type based on the ``#!client`` action found in the
+		log.
 		
 		:param str client_string: The client string from the log
 		"""
@@ -106,7 +116,9 @@ class Log():
 	
 	
 	def get_json(self):
-		""" Return the JSON data for the log.
+		""" Return the JSON serialized dict containing the **meta** dict and
+		the **log** list. This is a suitable format for the client side
+		JavaScript to handle.
 		
 		:return: Parsed log in JSON format
 		:rtype: str
@@ -116,7 +128,9 @@ class Log():
 	
 	
 	def parse(self, raw_log):
-		""" Read and parse the log.
+		""" Read and parse the log. This is the main entry point for this class,
+		and mostly delegates the work for each line to other functions or
+		classes. Loops through every line in the log and delegates accordingly.
 		
 		:param str log: Raw text of the log to parse
 		:return: Success
@@ -148,7 +162,8 @@ class Log():
 	
 	
 	def set_id(self, logid):
-		""" Set the log identifier.
+		""" Set the log identifier. This should be called before get_json() to
+		ensure that the id is set in the returned JSON data.
 		
 		:param str logid: Unique identifier for the log
 		"""

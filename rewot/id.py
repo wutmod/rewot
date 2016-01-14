@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-	rewot.id
-	~~~~~~~~
+	Unique ID Generator
+	~~~~~~~~~~~~~~~~~~~
 	
 	Generate a unique identifier to reference logs.
-	
-	:copyright: Copyright 2016 by the ReWoT team, see AUTHORS.rst.
-	:license: MIT, see LICENSE for details.
 """
 
 from datetime import datetime
@@ -21,12 +18,19 @@ BASE_LENGTH = len(BASE_LIST)
 
 def generate(path):
 	"""	Create a base62 encoded unique identifier based on current timestamp.
-	Checks *path* for an existing file with the name of the generated identifier
-	to determine uniqueness.
+	Checks **path** for an existing file with the name of the generated
+	identifier to determine uniqueness.
 	
 	:param str path: Path to generated identifiers (files in a directory)
 	:return: Unique identifier if one was able to be created
 	:rtype: str or None
+	
+	To generate the shortest unique id possible, a datetime object is created
+	based on the current timestamp. From this datetime object, starting with
+	milliseconds, then appending seconds, then hours, until year, the value is
+	base62 encoded and checked for an existing identifier of the same value.
+	In this way can uniqueness be mostly ensured (eight requests with the same
+	timestamp will result in the eighth one failing).
 	"""
 	
 	now = datetime.utcnow()
