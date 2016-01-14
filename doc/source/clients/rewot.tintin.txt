@@ -1,0 +1,3 @@
+#event {RECEIVED LINE} {#format line {%U %0} {%0};#line log rewot.log {$line}}
+#event {SEND OUTPUT} {#format line {%U %0} {%0};#line log rewot.log {$line}}
+

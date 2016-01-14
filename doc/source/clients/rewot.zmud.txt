@@ -1,0 +1,11 @@
+#CLASS {rewot}
+#ALIAS reline {#var rewot/ts %time( "yy-mm-dd-hh:mm:ss.z");#write @rewot/fileno {@ts" %0"}}
+#ALIAS relog {#var rewot/fileno %1;#var rewot/logfile %2;#file @rewot/fileno @rewot/logfile;#write @rewot/fileno {};#write @rewot/fileno {"#!client zmud-0.1"};#t+ rewot/triggers}
+#ALIAS reek {#t- rewot/triggers;#close @rewot/fileno}
+#CLASS 0
+
+#CLASS {rewot|triggers}
+#TRIGGER {*} {reline "%0"} "" {prompt|notrig|color}
+#TRIGGER {$} {reline "%0"} "" {notrig|color}
+#CLASS 0
+
