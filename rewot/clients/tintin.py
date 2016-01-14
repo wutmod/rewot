@@ -46,7 +46,7 @@ class TinTin:
 		  ``1452707385328498 [ obvious exits: E ]``
 		"""
 		
-		d = {"delta": 0, "show": True}
+		d = {"delta": 0, "show": True, "raw": line}
 		
 		m = re.match(r"^(?P<ts>\d+) (?P<line>.*)$", line)
 		if m:

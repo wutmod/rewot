@@ -52,7 +52,7 @@ class ZMud:
 		  ``16-01-13-09:25:06.438 [36mSleeping Chamber[0m``
 		"""
 		
-		d = {"delta": 0, "show": True}
+		d = {"delta": 0, "show": True, "raw": line}
 		m = re.match(r"^(?P<ts>(?:\d+-){3}\d+:\d+:\d+\.\d+) (?P<line>.*)$", line)
 		if m:
 			dt = datetime.datetime.strptime(
