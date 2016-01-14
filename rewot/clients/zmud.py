@@ -69,6 +69,7 @@ class ZMud:
 					d["delta"] = 4
 				else:
 					d["delta"] = d["delta"].total_seconds()
+				d["delta"] = d["delta"] * 1000
 			self.last_dt = dt
 		else:
 			d["line"] = line
