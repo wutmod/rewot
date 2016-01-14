@@ -1,4 +1,4 @@
-Client Support
+Client Scripts
 ==============
 
 **Contents**
