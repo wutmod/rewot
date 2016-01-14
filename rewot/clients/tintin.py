@@ -50,15 +50,15 @@ class TinTin:
 		
 		m = re.match(r"^(?P<ts>\d+) (?P<line>.*)$", line)
 		if m:
-			ts = float(m.groupdict().get("ts")) / 1000000
+			ts = float(m.groupdict().get("ts")) / 1000
 			d["line"] = m.groupdict().get("line")
 			
 			if self.last_ts:
 				d["delta"] = ts - self.last_ts
 				if d["delta"] < 0:
 					d["delta"] = 0
-				elif d["delta"] > 4:
-					d["delta"] = 4
+				elif d["delta"] > 4000:
+					d["delta"] = 4000
 			self.last_ts = ts
 		else:
 			d["line"] = line
