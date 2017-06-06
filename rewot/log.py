@@ -136,12 +136,14 @@ class Log():
 		:return: Success
 		:rtype: True or False
 		"""
-		
+		print("woo")
 		if raw_log:
+			print("poo")
 			self.raw_log = raw_log
 			lineno = 1
 			
 			for line in raw_log.split("\n"):
+				print("line: %s" % line)
 				line_dict = {}
 				line = line.rstrip("\r")
 				

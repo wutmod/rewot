@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+
+{% block main %}
+
+<h2>Submit a log</h2>
+<form action="/+" method="post" class="submit_form">
+	Title <input type="text" name="submit_title" size="30"><br>
+	Player <input type="text" name="submit_player" size="30"><br>
+	Public <input type="checkbox" value="public" name="submit_public"><br>
+	<textarea name="submit_log" required></textarea><br>
+	<input type="submit" value="Submit"><br>
+</form>
+
+{% endblock %}

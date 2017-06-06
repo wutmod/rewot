@@ -1,0 +1,203 @@
+body {
+	background-color: black;
+	color: silver;
+	font-family: monospace;
+	margin-right: 19rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: seagreen;
+}
+
+a {
+	color: dodgerblue;
+	text-decoration: none;
+}
+
+a:hover {
+	color: skyblue;
+}
+
+/*nav {
+	position: fixed;
+	background: black;
+	z-index: 10;
+	top: 0;
+	right: 0;
+	padding: .5rem;
+	border-left: 1px dashed gray;
+	border-bottom: 1px dashed gray;
+	text-align: right;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	list-style: none;
+	padding-bottom: .5rem;
+}
+
+nav ul li:last-child {
+	padding-bottom: 0;
+}
+
+header {
+	position: fixed;
+	background: black;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 3rem;
+	border-bottom: 1px dashed gray;
+	padding-left: 2rem;
+	z-index: 9;
+}
+
+header h1, header h2 {
+	height: 2rem;
+	display: inline-block;
+	color: coral;
+}
+
+main#replay {
+	white-space: pre-wrap;
+}
+
+textarea {
+	width: 75%;
+	height: 30rem;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2rem;
+	border-top: 1px dashed gray;
+	line-height: 2rem;
+	background: black;
+}
+/*
+footer ul {
+	margin: 0;
+	padding: 0;
+}
+
+footer ul li {
+	list-style: none;
+	display: inline-block;
+	padding-left: 1rem;
+}
+
+footer ul li.divider {
+	color: green;
+	font-size: 1rem;
+}
+
+footer i {
+	font-size: x-large;
+}
+
+span.header_mod {
+	visibility: hidden;
+}
+
+
+.notice {
+	color: yellow;
+}*/
+
+
+
+div.top {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 10em;
+	text-align: center;
+}
+
+div.top h1 {
+	font-size: xx-large;
+	border-bottom: 1px solid seagreen;
+	margin-bottom: 0;
+}
+
+div.top h1 a {
+	color: coral;
+}
+
+div.top ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.top ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0;
+	padding-top: .5rem;
+	padding-right: .5rem;
+	width: 100%;
+}
+
+div.bottom {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	width: 10rem;
+	text-align: right;
+	padding: .5rem;
+}
+
+div.bottom table {
+	display: inline-block;
+}
+
+
+div.bottom i {
+	font-size: xx-large;
+}
+
+.green {
+	color: seagreen;
+}
+
+div.notice {
+	color: seagreen;
+	padding: 1rem;
+}
+
+div.notice span {
+	color: yellow;
+}
+
+progress[value] {
+	width: 3rem;
+	height: 1rem;
+}
+
+main#main {
+	/*white-space: pre-wrap;*/
+}
+
+div.replay-div {
+	display: none;
+	white-space: pre-wrap;
+}
+
+div.replay-div-visible {
+	display: block;
+}
+
+textarea {
+	width: 40rem;
+	height: 20rem;
+}
+
+
+

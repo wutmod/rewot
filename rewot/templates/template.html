@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>ReWoT</title>
+	<link rel="stylesheet" href="/rewot.css" type="text/css">
+	<link rel="stylesheet" href="/ansi2html.css" type="text/css">
+	<link rel="stylesheet" href="/fontello/css/fontello.css" type="text/css">
+</head>
+
+<body>
+	<div class="top">
+		<h1><a href="/">ReWoT</a></h1>
+		<ul>
+			<li><a href="/latest">latest</a></li>
+			<li><a href="/submit">submit</a></li>
+			<li>
+				<a href="/docs"><i class="icon-help"></i></a>
+				<a href="https://github.com/wutmod/rewot">
+					<i class="icon-github"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="bottom">
+		<table>
+			<tr>
+				<td></td>
+				<td>
+					<a href="#" onclick="return speed_up();">
+						<i class="icon-plus" title="Speed up"></i>
+					</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<a href="#" onclick="return reverse();">
+						<i class="icon-fast-backward" title="Rewind"></i>
+					</a>
+				</td>
+				<td>
+					<a href="#" onclick="return play_pause();">
+						<i id="play_pause" class="icon-play" title="Play"></i>
+					</a>
+				</td>
+				<td>
+					<a href="#" onclick="return forward();">
+						<i class="icon-fast-forward" title="Fast forward"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<a href="#" onclick="return slow_down();">
+						<i class="icon-minus" title="Slow down"></i>
+					</a>
+				</td>
+				<td>
+					<small>x</small><span id="speed" title="Speed">1</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-size: x-large;" title="Line number">#</span><span id="lineno" title="Line number"></span>
+				</td>
+				<td colspan=2>
+					<progress id="progress" max="0" value="0"></progress>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<main id="main">
+{% block main %}{% endblock %}
+	</main>
+	<script src="/rewot.js"></script>
+{% block script %}{% endblock %}
+</body>
+
+</html>
